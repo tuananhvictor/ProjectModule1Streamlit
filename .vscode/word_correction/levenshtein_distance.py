@@ -2,15 +2,7 @@ import streamlit_env
 import streamlit as st
 
 def levenshtein_distance(str1, str2):
-  """Calculates the Levenshtein distance between two strings.
-
-  Args:
-      str1: The first string.
-      str2: The second string.
-
-  Returns:
-      The Levenshtein distance between the two strings.
-  """
+ 
 
   m = len(str1) + 1  # Length of the first string + 1 (for empty string)
   n = len(str2) + 1  # Length of the second string + 1 (for empty string)
@@ -46,7 +38,7 @@ def load_vocab(file_path):
         lines = f.readlines()
     words = sorted(set([line.strip().lower() for line in lines]))
     return words
-vocabs = load_vocab(file_path='./vocab.txt')
+vocabs = load_vocab(file_path='C:\Users\HP\Downloads\ProjectModule1Streamlit\.vscode\word_correction\vocab.txt')
 
 def main():
     st.title("Word Correction using Levenshtein Distance")
