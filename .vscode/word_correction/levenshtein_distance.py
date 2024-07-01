@@ -1,4 +1,4 @@
-import streamlit_env 
+
 import streamlit as st
 
 def levenshtein_distance(str1, str2):
@@ -38,7 +38,7 @@ def load_vocab(file_path):
         lines = f.readlines()
     words = sorted(set([line.strip().lower() for line in lines]))
     return words
-vocabs = load_vocab(file_path='C:\Users\HP\Downloads\ProjectModule1Streamlit\.vscode\word_correction\vocab.txt')
+vocabs = load_vocab(file_path=r'C:/Users/HP/Downloads/word_correction/vocab.txt')
 
 def main():
     st.title("Word Correction using Levenshtein Distance")
