@@ -4,27 +4,23 @@ import mysql.connector
 # Kết nối đến cơ sở dữ liệu MySQL
 conn = mysql.connector.connect(
     host="localhost",
-    user="root",
-    password="cuncon123",
-    database="diary_app"
+    user="your_username",
+    password="your_password",
+    database="your_database"
 )
 cursor = conn.cursor()
 
 # Hàm để thực hiện đăng ký tài khoản
-
-
 def register(email, password):
     # Kiểm tra xem email đã tồn tại trong cơ sở dữ liệu chưa
-    cursor.execute('SELECT * FROM users WHERE mail = %s', (email,))
+    cursor.execute('SELECT * FROM users WHERE email = %s', (email,))
     if cursor.fetchone() is not None:
         return False
-
+    
     # Thêm người dùng vào cơ sở dữ liệu
-    cursor.execute(
-        'INSERT INTO users (mmail, password) VALUES (%s, %s)', (email, password))
+    cursor.execute('INSERT INTO users (email, password) VALUES (%s, %s)', (email, password))
     conn.commit()
     return True
-
 
 # Thiết lập trang
 st.set_page_config(page_title="Đăng_ký", layout="centered")
