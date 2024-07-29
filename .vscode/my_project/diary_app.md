@@ -67,6 +67,32 @@
 
     https://lucid.app/lucidchart/2c3b4c86-7de7-431d-802a-d05de35eea9d/edit?viewport_loc=-1918%2C-1574%2C3072%2C1482%2C0_0&invitationId=inv_75bc71bb-1662-4470-abb4-e9d3ebe3f33d
     
+
+## Mô Tả Các Tệp
+
+- **`app/backend/__init__.py`**: Tệp này thường dùng để đánh dấu thư mục `backend` là một gói Python (package). Nó có thể để trống hoặc chứa mã khởi tạo gói.
+
+- **`app/backend/main.py`**: Đây là điểm vào chính của ứng dụng. Tệp này chứa cấu hình và định nghĩa các endpoint của FastAPI, nơi các route API được khai báo và xử lý.
+
+- **`app/backend/config.py`**: Tệp cấu hình, chứa các biến môi trường và thiết lập kết nối cơ sở dữ liệu. Các biến này được tải từ tệp `.env.txt` để cấu hình kết nối cơ sở dữ liệu và các thiết lập khác.
+
+- **`app/backend/database.py`**: Chứa cấu hình cơ sở dữ liệu và các chức năng liên quan, như việc tạo engine và session cho SQLAlchemy. Tệp này cũng định nghĩa hàm `get_db` để cung cấp kết nối cơ sở dữ liệu cho các route.
+
+- **`app/backend/models.py`**: Định nghĩa các mô hình dữ liệu sử dụng SQLAlchemy ORM. Các lớp ở đây ánh xạ tới các bảng trong cơ sở dữ liệu.
+
+- **`app/backend/schemas.py`**: Chứa các schema Pydantic để kiểm tra và xác thực dữ liệu đầu vào và đầu ra cho các API. Các lớp ở đây định nghĩa cấu trúc dữ liệu mà API sẽ sử dụng.
+
+- **`app/backend/initialization.py`**: Tệp script để khởi tạo cơ sở dữ liệu. Khi chạy, tệp này sẽ tạo tất cả các bảng cần thiết trong cơ sở dữ liệu dựa trên các mô hình được định nghĩa trong `models.py`.
+
+- **`app/backend/utils.py`**: Chứa các hàm tiện ích, chẳng hạn như hàm mã hóa mật khẩu. Các hàm ở đây có thể được sử dụng bởi các phần khác của ứng dụng để thực hiện các tác vụ bổ sung.
+
+- **`app/frontend/__init__.py`**: Tệp này đánh dấu thư mục `frontend` là một gói Python. Nó có thể để trống hoặc chứa mã khởi tạo gói.
+
+- **`app/frontend/app.py`**: Tệp này có thể chứa mã nguồn cho phần giao diện người dùng của ứng dụng (frontend). Nó có thể sử dụng Streamlit hoặc các công nghệ khác để xây dựng giao diện web tương tác với backend.
+
+- **`.env.txt`**: Tệp chứa các biến môi trường để cấu hình ứng dụng, như thông tin kết nối cơ sở dữ liệu. Các biến này được nạp vào ứng dụng bởi `config.py`.
+
+- **`requirements.txt`**: Tệp liệt kê các thư viện và phiên bản cần thiết để chạy ứng dụng. Bạn có thể cài đặt các phụ thuộc từ tệp này bằng pip.
 ## Cài Đặt
 
 1. **Clone Dự Án**
