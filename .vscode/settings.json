@@ -2,5 +2,20 @@
     "sonarlint.connectedMode.project": {
         "connectionId": "tuananhvictor",
         "projectKey": "tuananhvictor_ProjectModule1Streamlit"
-    }
+    },
+    "sqltools.connections": [
+        {
+            "mysqlOptions": {
+                "authProtocol": "default",
+                "enableSsl": "Disabled"
+            },
+            "previewLimit": 50,
+            "server": "localhost",
+            "port": 3306,
+            "driver": "MySQL",
+            "database": "diary_app",
+            "username": "root",
+            "name": "diary_app"
+        }
+    ]
 }

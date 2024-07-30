@@ -1,0 +1,46 @@
+{
+    "database": {
+        "1722319649768": {
+            "host": "127.0.0.1",
+            "port": 3306,
+            "user": "root",
+            "password": "dbclient_a$DGJp7J1gMCRpXeI2MqJAnQ==",
+            "dbType": "MySQL",
+            "advance": {
+                "startupSQL": "mysql://root:cuncon123@localhost:3306/diary_app",
+                "hideSystemSchema": true,
+                "groupingTables": false
+            },
+            "treeFeatures": [],
+            "timezone": "+00:00",
+            "useConnectionString": true,
+            "connectionUrl": "root@127.0.0.1:3306",
+            "usingSSH": false,
+            "useSocksProxy": false,
+            "useHTTPProxy": false,
+            "athena": {},
+            "bigQuery": {},
+            "global": false,
+            "savePassword": "Forever",
+            "readonly": false,
+            "sort": 11,
+            "useSSL": false,
+            "socketPath": "/var/run/mysqld/mysqld.sock",
+            "fs": {
+                "encoding": "utf8",
+                "showHidden": true
+            },
+            "dm": {
+                "usingServiceName": false
+            },
+            "httpAuth": {
+                "authType": "none"
+            },
+            "key": "1722319649768",
+            "connectionKey": "database.connections",
+            "isJdbc": false,
+            "requiredAuth": true
+        }
+    },
+    "$schema": "http://127.0.0.1:8828/schema.json"
+}

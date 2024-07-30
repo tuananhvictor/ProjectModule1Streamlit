@@ -1,7 +1,10 @@
 import streamlit as st
 import requests
+import os
+from datetime import date
 
-API_URL = "http://localhost:8000"
+# Sử dụng biến môi trường để xác định API_URL
+API_URL = os.getenv("API_URL", "http://localhost:8000")  # Mặc định là localhost:8000
 
 def login(username, password):
     response = requests.post(f"{API_URL}/token", data={"username": username, "password": password})
@@ -9,10 +12,18 @@ def login(username, password):
         return response.json().get("access_token")
     return None
 
-def register(username, email, password, full_name):
+def register(username, email, password, full_name, age, date_of_birth):
+    date_of_birth_str = date_of_birth.strftime('%Y-%m-%d')
     response = requests.post(
         f"{API_URL}/users",
-        json={"name": username, "mail": email, "password": password, "full_name": full_name}
+        json={
+            "name": username,
+            "mail": email,
+            "password": password,
+            "full_name": full_name,
+            "age": age,
+            "date_of_birth": date_of_birth_str
+        }
     )
     return response.status_code == 200
 
@@ -26,7 +37,6 @@ with tab1:
         username = st.text_input("Username")
         password = st.text_input("Password", type="password")
         submit_button = st.form_submit_button("Login")
-
         if submit_button:
             if username and password:
                 token = login(username, password)
@@ -47,12 +57,14 @@ with tab2:
         new_full_name = st.text_input("Full Name")
         new_password = st.text_input("Password", type="password")
         confirm_password = st.text_input("Confirm Password", type="password")
+        new_age = st.number_input("Age", min_value=1)
+        new_date_of_birth = st.date_input("Date of Birth")
         submit_button = st.form_submit_button("Register")
 
         if submit_button:
             if new_username and new_email and new_full_name and new_password and confirm_password:
                 if new_password == confirm_password:
-                    if register(new_username, new_email, new_password, new_full_name):
+                    if register(new_username, new_email, new_password, new_full_name, new_age, new_date_of_birth):
                         st.success("Registration successful! Please login.")
                     else:
                         st.error("Registration failed. Please try again.")
